@@ -11,6 +11,12 @@ class UserAdmin(admin.ModelAdmin):
             ('is_active', admin.BooleanFieldListFilter),
             )
 
-admin.site.register(models.User, UserAdmin)
+
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ('name', 'pid') # list
+
 
 # Register your models here.
+admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Group)
+

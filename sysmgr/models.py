@@ -13,3 +13,12 @@ class User(models.Model):
     is_active = models.BooleanField(default=True)
     last_login = models.DateTimeField()
     created_at = models.DateTimeField()
+
+
+class Group(models.Model):
+    id = models.AutoField(primary_key=True)
+    name= models.CharField(max_length=30, default='')
+    pid = models.ForeignKey('self', null=True, blank=True, verbose_name="parent group")
+
+    def __str__(self):
+        return self.name
