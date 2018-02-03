@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1 
+kind: Deployment
+metadata:
+  name: potato-sysmgr 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: potato-sysmgr 
+    matchExpressions:
+      - {key: app, operator: In, values: [potato-sysmgr] }
+  template:
+    metadata:
+      labels:
+        app: potato-sysmgr 
+    spec:
+      containers:
+        - name: potato-sysmgr 
+          image: aqqwbjgyiy/potato-sysmgr
+          ports:
+          - containerPort: 80 
