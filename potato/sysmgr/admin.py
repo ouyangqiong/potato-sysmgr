@@ -37,7 +37,7 @@ class MenuAdmin(admin.ModelAdmin):
     list_filter = ('menu_type',)
 
 class RegionAdmin(admin.ModelAdmin):
-    list_display = ('code', 'name', 'desc') # list
+    list_display = ('code', 'name', 'desc','is_active', 'is_overseas') # list
     filter_horizontal = ('menu',)
 
 class RegionInline(admin.TabularInline):

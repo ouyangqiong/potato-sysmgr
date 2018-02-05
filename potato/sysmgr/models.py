@@ -96,6 +96,7 @@ class Region(models.Model):
     name = models.CharField(max_length=20, default='')
     desc = models.CharField(max_length=50, default='')
     is_active = models.BooleanField(default=True)
+    is_overseas = models.BooleanField(default=False)
     provider = models.ForeignKey(Provider, to_field="id")
     menu = models.ManyToManyField(Menu, null=True, blank=True)
 
