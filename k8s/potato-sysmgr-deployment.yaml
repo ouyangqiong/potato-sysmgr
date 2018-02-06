@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1 
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: potato-sysmgr 
@@ -17,5 +17,22 @@ spec:
       containers:
         - name: potato-sysmgr 
           image: aqqwbjgyiy/potato-sysmgr
+          env:
+            - name: DATABASE_NAME
+              value: "potato"
+            - name: DATABASE_HOST
+              value: "172.17.0.3"
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
+            - name: DATABASE_PORT
+              value: "3306"
           ports:
-          - containerPort: 80 
+          - containerPort: 80

@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'potato.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "potato",
-        "HOST": "127.0.0.1",
-        "USER": "root",
-        "PASSWORD": "test1234",
-        "PORT": "3306",
+        'NAME': os.environ.get('DATABASE_NAME', ''),
+        "HOST": os.environ.get('DATABASE_HOST', ''),
+        "USER": os.environ.get('DATABASE_USER', ''),
+        "PASSWORD": os.environ.get('DATABASE_PASSWORD', ''),
+        "PORT": os.environ.get('DATABASE_PORT', ''),
     }
 }
 
